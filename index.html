@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>זוג או פרט - יובל סודאי</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Assistant', 'sans-serif'],
+                    },
+                    colors: {
+                        sage: {
+                            100: '#eef2ef',
+                            200: '#d5e2da',
+                            500: '#8ab09a',
+                            600: '#6b967e',
+                        },
+                        blush: {
+                            100: '#fdf5f5',
+                            300: '#f7dcdb',
+                        },
+                        dark: '#4a4a4a'
+                    },
+                    animation: {
+                        'blob': 'blob 10s infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' }
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Hide scrollbar for a cleaner look if content fits */
+        body {
+            overflow-x: hidden;
+        }
+        
+        /* Glass effect class */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Input focus transitions */
+        .input-field {
+            transition: all 0.3s ease;
+        }
+        .input-field:focus {
+            box-shadow: 0 0 0 3px rgba(138, 176, 154, 0.3);
+        }
+
+        /* Staggered animation delays */
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+    </style>
+</head>
+<body class="bg-sage-100 text-dark min-h-screen flex flex-col relative font-sans">
+
+    <!-- Animated Background Blobs -->
+    <div class="fixed inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+        <div class="absolute top-[-10%] right-[-5%] w-96 h-96 bg-sage-200 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob"></div>
+        <div class="absolute bottom-[-10%] left-[-10%] w-80 h-80 bg-blush-300 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob" style="animation-delay: 2s;"></div>
+        <div class="absolute top-[40%] left-[20%] w-72 h-72 bg-white rounded-full mix-blend-overlay filter blur-3xl opacity-50 animate-blob" style="animation-delay: 4s;"></div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex items-center justify-center p-4 sm:p-8 relative z-10">
+        
+        <div class="w-full max-w-lg">
+            
+            <!-- Yuval's Logo (Header) -->
+            <div class="text-center mb-8 opacity-0 animate-fade-in-up">
+                <!-- Using the uploaded image name -->
+                <img src="יובל-סודאי-PNG.png" alt="יובל סודאי - פסיכותרפיסט ויועץ זוגי" class="h-20 sm:h-24 mx-auto object-contain drop-shadow-sm" onerror="this.src='https://via.placeholder.com/300x100?text=לוגו+יובל+סודאי';">
+            </div>
+
+            <!-- Glass Card -->
+            <div class="glass-card rounded-3xl p-8 sm:p-10 shadow-2xl opacity-0 animate-fade-in-up delay-100">
+                
+                <!-- "Zoug O Prat" Logo -->
+                <div class="mb-6 text-center">
+                    <img src="לוגו זוג או פרט copy.jpg" alt="זוג או פרט" class="h-32 sm:h-40 mx-auto rounded-2xl shadow-lg border-2 border-white object-cover" onerror="this.src='https://via.placeholder.com/200x200?text=זוג+או+פרט';">
+                </div>
+
+                <div class="text-center mb-8">
+                    <h1 class="text-2xl sm:text-3xl font-bold mb-3 text-dark">הצטרפו לניוזלטר שלנו</h1>
+                    <div class="text-gray-600 text-sm sm:text-base leading-relaxed flex flex-col items-center">
+                        <p class="mb-4">קבלו ישירות לתיבת המייל תובנות ונקודות למחשבה על:</p>
+                        <ul class="text-right space-y-2 inline-block">
+                            <li class="flex items-center"><svg class="w-4 h-4 text-sage-500 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> תקשורת מקרבת וזוגיות</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 text-sage-500 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> התפתחות אישית וצמיחה</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 text-sage-500 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> כלים מעשיים לחיי היומיום</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Signup Form -->
+                <form id="signupForm" class="space-y-5">
+                    
+                    <!-- Name Input -->
+                    <div class="relative opacity-0 animate-fade-in-up delay-200">
+                        <label for="name" class="sr-only">שם מלא</label>
+                        <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+                            <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        </div>
+                        <input type="text" id="name" name="name" required placeholder="איך קוראים לך?" 
+                            class="input-field w-full pl-5 pr-11 py-4 bg-white/80 border border-gray-200 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:border-sage-500 transition-all">
+                    </div>
+
+                    <!-- Email Input -->
+                    <div class="relative opacity-0 animate-fade-in-up delay-300">
+                        <label for="email" class="sr-only">כתובת מייל</label>
+                        <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+                            <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <input type="email" id="email" name="email" required placeholder="כתובת המייל שלך" 
+                            class="input-field w-full pl-5 pr-11 py-4 bg-white/80 border border-gray-200 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:border-sage-500 transition-all text-right" dir="rtl">
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="pt-2 opacity-0 animate-fade-in-up delay-300">
+                        <button type="submit" id="submitBtn" 
+                            class="w-full bg-sage-500 hover:bg-sage-600 text-white font-bold py-4 px-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-200 hover:-translate-y-1 flex justify-center items-center group">
+                            <span id="btnText">אני רוצה להירשם</span>
+                            <svg id="btnIcon" class="w-5 h-5 mr-2 transform transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                            </svg>
+                            <!-- Loading Spinner (Hidden by default) -->
+                            <svg id="btnLoader" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                        </button>
+                        
+                        <!-- Privacy Note -->
+                        <p class="text-xs text-gray-400 mt-4 text-center flex items-center justify-center">
+                            <svg class="w-3.5 h-3.5 ml-1.5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                            הפרטיות שלכם חשובה לנו. לא נעביר את המייל הלאה.
+                        </p>
+                    </div>
+                </form>
+
+                <!-- Success Message (Hidden by default) -->
+                <div id="successMessage" class="hidden text-center py-6">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-500 mb-4 animate-bounce">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">איזה יופי שהצטרפת!</h2>
+                    <p class="text-gray-600">הפרטים שלך נקלטו בהצלחה. נתראה במייל הבא.</p>
+                </div>
+
+            </div>
+            
+            <!-- Footer -->
+            <div class="text-center mt-8 text-gray-500 text-sm opacity-0 animate-fade-in-up delay-300">
+                <p>&copy; 2024 יובל סודאי. כל הזכויות שמורות.</p>
+            </div>
+            
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent actual form submission for now
+            
+            const btn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const btnIcon = document.getElementById('btnIcon');
+            const btnLoader = document.getElementById('btnLoader');
+            const form = document.getElementById('signupForm');
+            const successMessage = document.getElementById('successMessage');
+            
+            // Collect data (for later use with Google Apps Script)
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            // UI Update: Loading State
+            btnText.textContent = 'שולח...';
+            btnIcon.classList.add('hidden');
+            btnLoader.classList.remove('hidden');
+            btn.classList.add('cursor-not-allowed', 'opacity-90');
+            btn.disabled = true;
+            
+            // הכנס כאן את הקישור שקיבלת מהפריסה של Google Apps Script
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbymU2uU41POQIJ9LIdRMH0Onq0RDdmzJuGku8F6MUXUNJJPE54Qvjm40a9_dNyE5r3P/exec'; // <--- שנה את זה!
+
+            // שליחת הנתונים לגוגל שיטס
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors', // פותר בעיות אבטחת דפדפן מול גוגל סקריפט
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name: name, email: email })
+            })
+            .then(response => {
+                // UI Update: Success State
+                form.classList.add('hidden');
+                successMessage.classList.remove('hidden');
+                successMessage.classList.add('animate-fade-in-up');
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                // במקרה של שגיאת רשת, נחזיר את הכפתור למצב הרגיל כדי לאפשר ניסיון חוזר
+                btnText.textContent = 'שגיאה, נסה שוב';
+                btnIcon.classList.remove('hidden');
+                btnLoader.classList.add('hidden');
+                btn.classList.remove('cursor-not-allowed', 'opacity-90');
+                btn.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>
