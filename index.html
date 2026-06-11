@@ -94,24 +94,13 @@
     </style>
     
     <script>
-        // פונקציות לטיפול בשגיאות טעינת תמונות ללא תלות בשרתים חיצוניים
+        // פונקציית גיבוי למקרה שהלוגו של יובל סודאי לא נטען (למשל בעיות רשת או סינון)
         function handleYuvalLogoError(img) {
             const container = img.parentElement;
             container.innerHTML = `
-                <div class="py-2">
+                <div class="py-4">
                     <h1 class="text-3xl font-bold text-sage-600 tracking-wide drop-shadow-sm">יובל סודאי</h1>
                     <p class="text-sm text-gray-500 mt-1 font-light">פסיכותרפיסט ויועץ זוגי מוסמך</p>
-                </div>
-            `;
-        }
-
-        function handleZougLogoError(img) {
-            const container = img.parentElement;
-            container.innerHTML = `
-                <div class="w-28 h-28 sm:w-36 sm:h-36 mx-auto rounded-3xl bg-sage-500 text-white flex flex-col items-center justify-center font-bold shadow-md border-2 border-white transform transition-transform hover:scale-105 duration-300">
-                    <span class="text-xl sm:text-2xl tracking-wider leading-none">זוג</span>
-                    <span class="text-xs my-1 font-light opacity-80">או</span>
-                    <span class="text-xl sm:text-2xl tracking-wider leading-none">פרט</span>
                 </div>
             `;
         }
@@ -130,19 +119,15 @@
         
         <div class="w-full max-w-md mx-auto">
             
-            <!-- Yuval's Logo (Header) -->
-            <div id="yuval-logo-container" class="text-center mb-6 sm:mb-8 opacity-0 animate-fade-in-up">
-                <img src="יובל-סודאי-PNG.png" alt="יובל סודאי - פסיכותרפיסט ויועץ זוגי" class="h-16 sm:h-20 mx-auto object-contain drop-shadow-sm" onerror="handleYuvalLogoError(this)">
-            </div>
-
             <!-- Glass Card -->
             <div class="glass-card rounded-3xl p-6 sm:p-10 shadow-xl opacity-0 animate-fade-in-up delay-100 w-full">
                 
-                <!-- "Zoug O Prat" Logo -->
-                <div id="zoug-logo-container" class="mb-5 sm:mb-6 text-center">
-                    <img src="לוגו%20זוג%20או%20פרט%20copy.jpg" alt="זוג או פרט" class="h-28 sm:h-36 mx-auto rounded-2xl shadow-lg border-2 border-white object-cover" onerror="handleZougLogoError(this)">
+                <!-- Yuval's Logo Inside the Card -->
+                <div id="yuval-logo-container" class="mb-6 text-center">
+                    <img src="יובל-סודאי-PNG.png" alt="יובל סודאי - פסיכותרפיסט ויועץ זוגי" class="h-20 sm:h-24 mx-auto object-contain drop-shadow-sm" onerror="handleYuvalLogoError(this)">
                 </div>
 
+                <!-- Text Header -->
                 <div class="text-center mb-6 sm:mb-8">
                     <h1 class="text-xl sm:text-2xl font-bold mb-2.5 text-dark">הצטרפו לניוזלטר שלנו</h1>
                     <div class="text-gray-600 text-sm sm:text-base leading-relaxed flex flex-col items-center">
