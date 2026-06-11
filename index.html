@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="he" dir="rtl" class="overflow-x-hidden w-full max-w-full">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>זוג או פרט - יובל סודאי</title>
     
     <!-- Google Fonts -->
@@ -39,12 +39,12 @@
                     keyframes: {
                         blob: {
                             '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '33%': { transform: 'translate(20px, -30px) scale(1.05)' },
+                            '66%': { transform: 'translate(-15px, 15px) scale(0.95)' },
                             '100%': { transform: 'translate(0px, 0px) scale(1)' }
                         },
                         fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '0%': { opacity: '0', transform: 'translateY(15px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' }
                         }
                     }
@@ -54,25 +54,37 @@
     </script>
     
     <style>
-        /* Hide scrollbar for a cleaner look if content fits */
-        body {
+        /* הגנות מובייל מתקדמות למניעת גלילה רוחבית ושיפור ביצועים */
+        html, body {
             overflow-x: hidden;
+            max-width: 100%;
+            width: 100%;
+            -webkit-text-size-adjust: 100%;
+            touch-action: manipulation; /* משפר את מהירות התגובה ללחיצה בניידים */
         }
         
         /* Glass effect class */
         .glass-card {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
         }
         
+        /* מניעת עיצוב ברירת המחדל של iOS על שדות טקסט */
+        input {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
         /* Input focus transitions */
         .input-field {
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
+            font-size: 16px !important; /* קריטי למניעת זום אוטומטי מעצבן באייפון */
         }
         .input-field:focus {
-            box-shadow: 0 0 0 3px rgba(138, 176, 154, 0.3);
+            box-shadow: 0 0 0 3px rgba(138, 176, 154, 0.25);
         }
 
         /* Staggered animation delays */
@@ -80,49 +92,71 @@
         .delay-200 { animation-delay: 200ms; }
         .delay-300 { animation-delay: 300ms; }
     </style>
+    
+    <script>
+        // פונקציות לטיפול בשגיאות טעינת תמונות ללא תלות בשרתים חיצוניים
+        function handleYuvalLogoError(img) {
+            const container = img.parentElement;
+            container.innerHTML = `
+                <div class="py-2">
+                    <h1 class="text-3xl font-bold text-sage-600 tracking-wide drop-shadow-sm">יובל סודאי</h1>
+                    <p class="text-sm text-gray-500 mt-1 font-light">פסיכותרפיסט ויועץ זוגי מוסמך</p>
+                </div>
+            `;
+        }
+
+        function handleZougLogoError(img) {
+            const container = img.parentElement;
+            container.innerHTML = `
+                <div class="w-28 h-28 sm:w-36 sm:h-36 mx-auto rounded-3xl bg-sage-500 text-white flex flex-col items-center justify-center font-bold shadow-md border-2 border-white transform transition-transform hover:scale-105 duration-300">
+                    <span class="text-xl sm:text-2xl tracking-wider leading-none">זוג</span>
+                    <span class="text-xs my-1 font-light opacity-80">או</span>
+                    <span class="text-xl sm:text-2xl tracking-wider leading-none">פרט</span>
+                </div>
+            `;
+        }
+    </script>
 </head>
-<body class="bg-sage-100 text-dark min-h-screen flex flex-col relative font-sans">
+<body class="bg-sage-100 text-dark min-h-screen flex flex-col relative font-sans w-full max-w-full">
 
     <!-- Animated Background Blobs -->
     <div class="fixed inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
-        <div class="absolute top-[-10%] right-[-5%] w-96 h-96 bg-sage-200 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob"></div>
-        <div class="absolute bottom-[-10%] left-[-10%] w-80 h-80 bg-blush-300 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob" style="animation-delay: 2s;"></div>
-        <div class="absolute top-[40%] left-[20%] w-72 h-72 bg-white rounded-full mix-blend-overlay filter blur-3xl opacity-50 animate-blob" style="animation-delay: 4s;"></div>
+        <div class="absolute top-[-10%] right-[-5%] w-72 sm:w-96 h-72 sm:h-96 bg-sage-200 rounded-full mix-blend-multiply filter blur-2xl opacity-50 animate-blob"></div>
+        <div class="absolute bottom-[-10%] left-[-10%] w-64 sm:w-80 h-64 sm:h-80 bg-blush-300 rounded-full mix-blend-multiply filter blur-2xl opacity-50 animate-blob" style="animation-delay: 2s;"></div>
     </div>
 
     <!-- Main Content -->
-    <main class="flex-grow flex items-center justify-center p-4 sm:p-8 relative z-10">
+    <main class="flex-grow flex items-center justify-center p-4 sm:p-8 relative z-10 w-full max-w-full">
         
-        <div class="w-full max-w-lg">
+        <div class="w-full max-w-md mx-auto">
             
             <!-- Yuval's Logo (Header) -->
-            <div class="text-center mb-8 opacity-0 animate-fade-in-up">
-                <!-- Using the uploaded image name -->
-                <img src="יובל-סודאי-PNG.png" alt="יובל סודאי - פסיכותרפיסט ויועץ זוגי" class="h-20 sm:h-24 mx-auto object-contain drop-shadow-sm" onerror="this.src='https://via.placeholder.com/300x100?text=לוגו+יובל+סודאי';">
+            <div id="yuval-logo-container" class="text-center mb-6 sm:mb-8 opacity-0 animate-fade-in-up">
+                <img src="יובל-סודאי-PNG.png" alt="יובל סודאי - פסיכותרפיסט ויועץ זוגי" class="h-16 sm:h-20 mx-auto object-contain drop-shadow-sm" onerror="handleYuvalLogoError(this)">
             </div>
 
             <!-- Glass Card -->
-            <div class="glass-card rounded-3xl p-8 sm:p-10 shadow-2xl opacity-0 animate-fade-in-up delay-100">
+            <div class="glass-card rounded-3xl p-6 sm:p-10 shadow-xl opacity-0 animate-fade-in-up delay-100 w-full">
                 
                 <!-- "Zoug O Prat" Logo -->
-                <div class="mb-6 text-center">
-                    <img src="לוגו זוג או פרט copy.jpg" alt="זוג או פרט" class="h-32 sm:h-40 mx-auto rounded-2xl shadow-lg border-2 border-white object-cover" onerror="this.src='https://via.placeholder.com/200x200?text=זוג+או+פרט';">
+                <div id="zoug-logo-container" class="mb-5 sm:mb-6 text-center">
+                    <img src="לוגו%20זוג%20או%20פרט%20copy.jpg" alt="זוג או פרט" class="h-28 sm:h-36 mx-auto rounded-2xl shadow-lg border-2 border-white object-cover" onerror="handleZougLogoError(this)">
                 </div>
 
-                <div class="text-center mb-8">
-                    <h1 class="text-2xl sm:text-3xl font-bold mb-3 text-dark">הצטרפו לניוזלטר שלנו</h1>
+                <div class="text-center mb-6 sm:mb-8">
+                    <h1 class="text-xl sm:text-2xl font-bold mb-2.5 text-dark">הצטרפו לניוזלטר שלנו</h1>
                     <div class="text-gray-600 text-sm sm:text-base leading-relaxed flex flex-col items-center">
-                        <p class="mb-4">קבלו ישירות לתיבת המייל תובנות ונקודות למחשבה על:</p>
-                        <ul class="text-right space-y-2 inline-block">
-                            <li class="flex items-center"><svg class="w-4 h-4 text-sage-500 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> תקשורת מקרבת וזוגיות</li>
-                            <li class="flex items-center"><svg class="w-4 h-4 text-sage-500 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> התפתחות אישית וצמיחה</li>
-                            <li class="flex items-center"><svg class="w-4 h-4 text-sage-500 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> כלים מעשיים לחיי היומיום</li>
+                        <p class="mb-3 text-gray-500">קבלו ישירות לתיבת המייל תובנות ונקודות למחשבה על:</p>
+                        <ul class="text-right space-y-2 inline-block text-xs sm:text-sm">
+                            <li class="flex items-center"><svg class="w-4 h-4 text-sage-500 ml-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> תקשורת מקרבת וזוגיות</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 text-sage-500 ml-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> התפתחות אישית וצמיחה</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 text-sage-500 ml-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> כלים מעשיים לחיי היומיום</li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- Signup Form -->
-                <form id="signupForm" class="space-y-5">
+                <form id="signupForm" class="space-y-4">
                     
                     <!-- Name Input -->
                     <div class="relative opacity-0 animate-fade-in-up delay-200">
@@ -131,7 +165,7 @@
                             <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                         </div>
                         <input type="text" id="name" name="name" required placeholder="איך קוראים לך?" 
-                            class="input-field w-full pl-5 pr-11 py-4 bg-white/80 border border-gray-200 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:border-sage-500 transition-all">
+                            class="input-field w-full pl-5 pr-11 py-3.5 bg-white/80 border border-gray-200 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:border-sage-500 transition-all text-base">
                     </div>
 
                     <!-- Email Input -->
@@ -141,18 +175,18 @@
                             <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                         </div>
                         <input type="email" id="email" name="email" required placeholder="כתובת המייל שלך" 
-                            class="input-field w-full pl-5 pr-11 py-4 bg-white/80 border border-gray-200 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:border-sage-500 transition-all text-right" dir="rtl">
+                            class="input-field w-full pl-5 pr-11 py-3.5 bg-white/80 border border-gray-200 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:border-sage-500 transition-all text-right text-base" dir="rtl">
                     </div>
 
                     <!-- Submit Button -->
                     <div class="pt-2 opacity-0 animate-fade-in-up delay-300">
                         <button type="submit" id="submitBtn" 
-                            class="w-full bg-sage-500 hover:bg-sage-600 text-white font-bold py-4 px-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-200 hover:-translate-y-1 flex justify-center items-center group">
+                            class="w-full bg-sage-500 hover:bg-sage-600 text-white font-bold py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-200 hover:-translate-y-1 active:translate-y-0 flex justify-center items-center group">
                             <span id="btnText">אני רוצה להירשם</span>
                             <svg id="btnIcon" class="w-5 h-5 mr-2 transform transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                             </svg>
-                            <!-- Loading Spinner (Hidden by default) -->
+                            <!-- Loading Spinner -->
                             <svg id="btnLoader" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
@@ -161,7 +195,7 @@
                         
                         <!-- Privacy Note -->
                         <p class="text-xs text-gray-400 mt-4 text-center flex items-center justify-center">
-                            <svg class="w-3.5 h-3.5 ml-1.5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                            <svg class="w-3.5 h-3.5 ml-1.5 opacity-70 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
                             הפרטיות שלכם חשובה לנו. לא נעביר את המייל הלאה.
                         </p>
                     </div>
@@ -174,14 +208,14 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                     </div>
-                    <h2 class="text-2xl font-bold text-gray-800 mb-2">איזה יופי שהצטרפת!</h2>
-                    <p class="text-gray-600">הפרטים שלך נקלטו בהצלחה. נתראה במייל הבא.</p>
+                    <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-2">איזה יופי שהצטרפת!</h2>
+                    <p class="text-sm sm:text-base text-gray-600">הפרטים שלך נקלטו בהצלחה. נתראה במייל הבא.</p>
                 </div>
 
             </div>
             
             <!-- Footer -->
-            <div class="text-center mt-8 text-gray-500 text-sm opacity-0 animate-fade-in-up delay-300">
+            <div class="text-center mt-6 sm:mt-8 text-gray-500 text-xs sm:text-sm opacity-0 animate-fade-in-up delay-300">
                 <p>&copy; 2024 יובל סודאי. כל הזכויות שמורות.</p>
             </div>
             
@@ -190,7 +224,7 @@
 
     <script>
         document.getElementById('signupForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Prevent actual form submission for now
+            e.preventDefault();
             
             const btn = document.getElementById('submitBtn');
             const btnText = document.getElementById('btnText');
@@ -199,7 +233,6 @@
             const form = document.getElementById('signupForm');
             const successMessage = document.getElementById('successMessage');
             
-            // Collect data (for later use with Google Apps Script)
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             
@@ -210,13 +243,12 @@
             btn.classList.add('cursor-not-allowed', 'opacity-90');
             btn.disabled = true;
             
-            // הכנס כאן את הקישור שקיבלת מהפריסה של Google Apps Script
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbymU2uU41POQIJ9LIdRMH0Onq0RDdmzJuGku8F6MUXUNJJPE54Qvjm40a9_dNyE5r3P/exec'; // <--- שנה את זה!
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbymU2uU41POQIJ9LIdRMH0Onq0RDdmzJuGku8F6MUXUNJJPE54Qvjm40a9_dNyE5r3P/exec';
 
             // שליחת הנתונים לגוגל שיטס
             fetch(scriptURL, {
                 method: 'POST',
-                mode: 'no-cors', // פותר בעיות אבטחת דפדפן מול גוגל סקריפט
+                mode: 'no-cors',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -230,7 +262,6 @@
             })
             .catch(error => {
                 console.error('Error!', error.message);
-                // במקרה של שגיאת רשת, נחזיר את הכפתור למצב הרגיל כדי לאפשר ניסיון חוזר
                 btnText.textContent = 'שגיאה, נסה שוב';
                 btnIcon.classList.remove('hidden');
                 btnLoader.classList.add('hidden');
